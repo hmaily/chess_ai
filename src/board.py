@@ -23,6 +23,10 @@ class Board:
         self.squares[initial.row][initial.col].piece = None # Update initial square to be none 
         self.squares[final.row][final.col].piece = piece # Update final square to have piece
 
+        # Pawn promotion 
+        if isinstance(piece, Pawn):
+            self.check_promotion(piece, final)
+
         # Mark move as true 
         piece.moved = True 
 
@@ -32,6 +36,10 @@ class Board:
         # Set last move 
         self.last_move = move
 
+    def check_promotion(self, piece, final):
+        if final.row == 0 or final.row == 7: # If pawn reaches row 0 or row 7 it can be promoted
+            self.squares[final.row][final.col].piece = Queen(piece.colour)
+    
     def valid_move(self, piece, move):
         return move in piece.moves 
 
