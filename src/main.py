@@ -43,11 +43,10 @@ class Main:
                     # If clicked square has a piece, then 
                     if board.squares[clicked_row][clicked_col].has_piece():
                         piece = board.squares[clicked_row][clicked_col].piece
-                        board.calc_moves(piece, clicked_row, clicked_col)
-
+                        
                         # Check if correct colour is playing
                         if piece.colour == game.next_player:
-
+                            board.calc_moves(piece, clicked_row, clicked_col, bool=True)
                             dragger.save_initial(event.pos)
                             dragger.drag_piece(piece)
 
