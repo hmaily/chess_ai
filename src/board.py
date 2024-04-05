@@ -44,7 +44,7 @@ class Board:
 
         # King castling
         if isinstance(piece, King):
-            if self.castling(initial, final):
+            if self.castling(initial, final) and not testing:
                 diff = final.col - initial.col 
                 rook = piece.left_rook if (diff < 0) else piece.right_rook # If diff is less than 0, the king moved to the left
                 self.move(rook, rook.moves[-1])
