@@ -89,8 +89,12 @@ class Main:
 
                         # Determining if move is valid 
                         if board.valid_move(dragger.piece, move):
+
+                            # Normal capture (ex. en passant)
                             captured = board.squares[released_row][released_col].has_piece()
                             board.move(dragger.piece, move)
+
+                            board.set_en_passant(dragger.piece)
 
                             # Play sound
                             game.play_sound(captured)

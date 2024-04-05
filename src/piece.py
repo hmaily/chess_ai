@@ -24,7 +24,8 @@ class Piece:
 
 class Pawn(Piece):
     def __init__(self, colour):
-        self.dir = -1 if colour == 'white' else 1 # If colour is white, it will move up the board, if black it will move down the board 
+        self.dir = -1 if colour == 'white' else 1 # If colour is white, it will move up the board, if black it will move down the board
+        self.en_passant = False 
         super().__init__('Pawn', colour, 1.0)
 
 class Knight(Piece):
