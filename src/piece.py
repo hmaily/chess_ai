@@ -45,4 +45,6 @@ class Queen(Piece):
 
 class King(Piece):
     def __init__(self, colour):
-        super().__init__('King', colour, 10000.0) # Tell AI that it is a very important game, if you lose it you will lose the game 
+        self.left_rook = None 
+        self.right_rook = None 
+        super().__init__('King', colour, 10000.0) # Tell AI that it is a very important game, if you lose it you will lose the game
